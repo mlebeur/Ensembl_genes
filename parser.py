@@ -11,8 +11,8 @@ def load_Ensembl_genes(data_folder):
     for rec in dat:
         _id = rec["ensemblID"]  
         process_key = lambda k: k.replace(" ","_").lower()
-		rec = dict_convert(rec,keyfn=process_key)
-		results.setdefault(_id,[]).append(rec)
+        rec = dict_convert(rec,keyfn=process_key)
+        results.setdefault(_id,[]).append(rec)
     for _id,docs in results.items():
         doc = {"_id": _id, "Ensembl_genes" : docs}
         yield doc
